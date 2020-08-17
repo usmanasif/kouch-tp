@@ -4,7 +4,7 @@ import { COLORS } from "../../assets/colors"
 
 const blankImage = require("../../assets/NoImageFound.jpeg")
 
-const Result = (props) => {
+const GameScreen = (props) => {
   let gameId = props.navigation.getParam("data")
   const [game, setGame] = useState('')
 
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Result
+export default GameScreen

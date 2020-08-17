@@ -1,19 +1,19 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from "./src/screens/HomeScreen";
-import Result from "./src/screens/Result";
+import GameScreen from "./src/screens/GameScreen"
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Result: Result,
+    Game: GameScreen,
   },
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-      title: "App"
-    }
+      title: "App",
+    },
   }
-);
+)
 
 export default createAppContainer(navigator);

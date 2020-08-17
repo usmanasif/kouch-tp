@@ -8,17 +8,29 @@ import {
 import { COLORS } from '../../assets/colors'
 
 const GameItem = (props) => {
-  let slug = props.item.title.replace(/\s/g, "-").replace(".", "").replace(":", "").toLowerCase()
+  let slug = props.item.Title.replace(/\s/g, "-").replace(".", "").replace(":", "").toLowerCase()
 
   return (
     <View style={styles.item}>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate("Result", { data: slug })}
+        onPress={() => props.navigation.navigate("Game", { data: slug })}
       >
-        <Text style={styles.titleText}>{props.item.title}</Text>
-        <Text style={styles.text}>Release Date: {props.item.releaseDate}</Text>
-        <Text style={styles.text}>Genre: {props.item.genre}</Text>
-        <Text style={styles.text}>Platforms: {props.item.platforms}</Text>
+        <Text style={styles.titleText}>{props.item.Title}</Text>
+
+        <View style={styles.rowItem}>
+          <Text style={styles.labelText}>Release Date:</Text>
+          <Text style={styles.text}>{props.item["Release Date"]}</Text>
+        </View>
+
+        <View style={styles.rowItem}>
+          <Text style={styles.labelText}>Genre:</Text>
+          <Text style={styles.text}>{props.item.Genre}</Text>
+        </View>
+
+        <View style={styles.rowItem}>
+          <Text style={styles.labelText}>Platforms:</Text>
+          <Text style={styles.text}>{props.item.Platforms}</Text>
+        </View>
       </TouchableOpacity>
     </View>
   )
@@ -26,12 +38,17 @@ const GameItem = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 20,
     color: COLORS.primary,
+    fontSize: 20,
   },
   titleText: {
     color: COLORS.primary,
     fontSize: 40,
+  },
+  labelText: {
+    color: COLORS.white,
+    fontSize: 20,
+    marginRight: 5
   },
   item: {
     borderColor: COLORS.secondary,
@@ -42,6 +59,9 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
     backgroundColor: COLORS.background,
   },
+  rowItem: {
+    flexDirection: 'row'
+  }
 })
 
 export default GameItem
